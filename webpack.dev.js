@@ -13,14 +13,15 @@ module.exports = {
     stats: 'verbose',
 
     devServer: {
-      port: 3000,
+      port: 8080,
     //  proxy: {
       //  '/add': 'http://localhost:8081',
         //'/add': 'http://localhost:8081'
       //}
       proxy: {
 
-        '/add': 'http://localhost:8081'
+        '/add': 'http://localhost:8081',
+        '/all': 'http://localhost:8081'
       }
     },
     output: {
