@@ -2,6 +2,7 @@
 let baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
 const key = 'd8c4b432924994fcf9466fa03ed7d8e1&units=imperial';
 let zipInput = document.getElementById('zip');
+
 // Create a new date instance dynamically with JS
 let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
@@ -16,8 +17,8 @@ const getTemperature = async(baseURL, zip, key)=>{
   return data;
 }
 /* Function to POST data */
-const postData = async(path, data = {}) => {
-  const postRequest = await fetch(path, {
+const postData = async(path, data) => {
+  const response = await fetch(path, {
     method: 'POST',
     credentials: 'same-origin',
     headers: {
@@ -28,9 +29,10 @@ const postData = async(path, data = {}) => {
 }
 /*update UI function*/
 const updateUI = async() => {
-  const response = await fetch('http://localhost:8080/all');
+  const response = await fetch('/all');
   console.log(response);
   try {
+  //const allData = input;
   const allData = await response.json();
   console.log(allData);
   console.log('updating UI');
@@ -50,11 +52,15 @@ const performAction = async function() {
     date: newDate,
     userRes: feelings.value
   }
+
   console.log(data);
     /*add data to Post*/
-  await postData('/', data)
+  await postData('/add', data)
+
     //update UI
   updateUI()
 }
 /*Add event listener*/
 document.getElementById('generate').addEventListener('click', performAction);
+
+export { getTemperature, postData, updateUI, performAction }
