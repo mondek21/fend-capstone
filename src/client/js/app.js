@@ -1,23 +1,16 @@
 /* Global Variables */
-let baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
-const key = 'd8c4b432924994fcf9466fa03ed7d8e1&units=imperial';
-let zipInput = document.getElementById('zip');
+//let baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
 
+let zipInput = document.getElementById('zip');
+//const key = process.env.w_app_key;
+//console.log(key);
 // Create a new date instance dynamically with JS
 let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 /* Function to GET Web API Data*/
-const getTemperature = async(baseURL, zip, key)=>{
-  const url =  `${baseURL}${zip}&appid=${key}`;
-  console.log(url);
-  const response = await fetch(url)
-  console.log(response);
-  let data = await response.json();
-  console.log(data);
-  return data;
-}
 /* Function to POST data */
 const postData = async(path, data) => {
+  console.log('postData')
   const response = await fetch(path, {
     method: 'POST',
     credentials: 'same-origin',
@@ -29,7 +22,9 @@ const postData = async(path, data) => {
 }
 /*update UI function*/
 const updateUI = async() => {
+
   const response = await fetch('/all');
+  console.log('updateUI');
   console.log(response);
   try {
   //const allData = input;
@@ -46,21 +41,27 @@ const updateUI = async() => {
 }
 /*post project data*/
 const performAction = async function() {
-  const webTemp = await getTemperature(baseURL, zipInput.value, key)
+  console.log('perform action')
+/*add zip data to post*/
+  const zipCodeInput = {
+    zip: zipInput.value
+  }
+  await postData('/zip', zipCodeInput)
+
+  console.log('webTemp')
+
   const data = {
-    temp: webTemp.main.temp,
+    //temp: tempFromServer,
     date: newDate,
     userRes: feelings.value
   }
-
   console.log(data);
     /*add data to Post*/
   await postData('/add', data)
-
     //update UI
   updateUI()
 }
 /*Add event listener*/
 document.getElementById('generate').addEventListener('click', performAction);
 
-export { getTemperature, postData, updateUI, performAction }
+export { /*getTemp,*/ postData, updateUI, performAction }

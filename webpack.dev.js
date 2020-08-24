@@ -21,7 +21,10 @@ module.exports = {
       proxy: {
 
         '/add': 'http://localhost:8081',
-        '/all': 'http://localhost:8081'
+        '/all': 'http://localhost:8081',
+        //'/zipper': 'http://localhost:8081',
+        '/zip': 'http://localhost:8081'
+
       }
     },
     output: {
