@@ -45,19 +45,19 @@ app.post('/add', async(req, res) => {
   try {
   projectData.date = req.body.date;
   projectData.userRes = req.body.userRes;
-  projectData.temp = await getTemperature(zipData.zip)
+  projectData.temp = await getLatLon(zipData.zip)
 
   res.send();
   console.log('app.post/add run')
   console.log(projectData);
 
-  const theLocation = await getLatLon(city);
+  const theLocation = await getLatLon(zipData.zip);
   console.log(theLocation);
   let lat = theLocation[0];
   let lon = theLocation[1];
   const theWeather = await getWeather(lat, lon)
   console.log(`The weather report shows:  ${theWeather}`);
-  picData = await getPics(city);
+  picData = await getPics(zipData.zip);
   console.log(`The pics are at: ${picData}`);
 
   } catch(e) {
@@ -72,8 +72,8 @@ app.post('/zip', async(req, res) => {
   res.send();
   console.log(zipData.zip);
   //tempData = getTemperature(zipData.zip);
-  tempData = await getTemperature(zipData.zip);
-  picData = await getPics(city);
+  cityData = await getLatLon(zipData.zip);
+  picData = await getPics(zipData.zip);
   console.log('app.post/zip run');
 
   console.log(tempData);

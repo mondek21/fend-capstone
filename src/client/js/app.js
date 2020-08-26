@@ -2,11 +2,17 @@
 //let baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
 
 let zipInput = document.getElementById('zip');
+let dateInput = document.getElementById('feelings');
+
 //const key = process.env.w_app_key;
 //console.log(key);
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+let todayDate = (d.getMonth()+1)+'/'+ d.getDate()+'/'+ d.getFullYear();
+
+console.log(todayDate);
+
+//console.log(milDiff);
 /* Function to GET Web API Data*/
 /* Function to POST data */
 const postData = async(path, data) => {
@@ -47,12 +53,23 @@ const performAction = async function() {
     zip: zipInput.value
   }
   await postData('/zip', zipCodeInput)
-
+  let thenDate = dateInput.value;
+  let dateDifference = thenDate-todayDate;
+  console.log(thenDate);
+  console.log(todayDate);
+  console.log(dateDifference);
+  //let milToday = todayDate.getTime();
+  let date1 = new Date(todayDate);
+  let date2 = new Date(thenDate);
+  let date3 = (date2 - date1)/(60*60*24*1000);
+  console.log(date3);
+  //let milThen = thenDate.getTime();
+  let milDiff = milThen - milToday;
   console.log('webTemp')
 
   const data = {
     //temp: tempFromServer,
-    date: newDate,
+    date: todayDate,
     userRes: feelings.value
   }
   console.log(data);
