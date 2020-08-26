@@ -104,9 +104,11 @@ const getLatLon = async(city)=>{
   console.log(data);
   const lat = data.geonames[0].lat;
   const lon = data.geonames[0].lng;
+  const country = data.geonames[0].countryName;
   console.log(lat);
   console.log(lon);
-  const coordinates = [lat, lon];
+  console.log(country)
+  const coordinates = [lat, lon, country];
   return coordinates;
 }
 

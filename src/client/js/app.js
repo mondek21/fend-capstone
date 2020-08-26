@@ -54,17 +54,17 @@ const performAction = async function() {
   }
   await postData('/zip', zipCodeInput)
   let thenDate = dateInput.value;
-  let dateDifference = thenDate-todayDate;
-  console.log(thenDate);
-  console.log(todayDate);
-  console.log(dateDifference);
+  //let dateDifference = thenDate-todayDate;
+  //console.log(thenDate);
+  //console.log(todayDate);
+  //console.log(dateDifference);
   //let milToday = todayDate.getTime();
   let date1 = new Date(todayDate);
   let date2 = new Date(thenDate);
   let date3 = (date2 - date1)/(60*60*24*1000);
   console.log(date3);
   //let milThen = thenDate.getTime();
-  let milDiff = milThen - milToday;
+  //let milDiff = milThen - milToday;
   console.log('webTemp')
 
   const data = {
