@@ -2,30 +2,32 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Weather Journal</title>
+  <title>Travel Planner</title>
   <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
-
 </head>
 <body>
   <div id = "app">
     <div class ="holder headline">
-      Weather Journal App
+      Travel Planner App
      </div>
      <div class ="holder zip">
-       <label for="zip">Enter Zipcode here</label>
-       <input type="text" id="zip" placeholder="enter zip code here">
+       <label for="zip">Enter Your Destination City</label>
+       <input type="text" id="zip" placeholder="Enter destination city here">
      </div>
      <div class ="holder feel">
-       <label for="feelings">How are you feeling today?</label>
-       <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
+       <label for="feelings">When does your trip start? (mm/dd/yy)</label>
+       <!--<textarea class= "myInput" id="feelings" placeholder="mm/dd/yy" rows="9" cols="50"></textarea>-->
+       <input type="text" id="feelings" placeholder="mm/dd/yy">
        <button id="generate" type = "submit"> Generate </button>
      </div>
      <div class ="holder entry">
-       <div class = "title">Most Recent Entry</div>
+       <div class = "title">Your Upcoming Trip:</div>
        <div id = "entryHolder">
+       <div id = "content"></div>
        <div id = "date"></div>
        <div id = "temp"></div>
-       <div id = "content"></div>
+
+       <div id = "pic"></div>
        </div>
       </div>
    </div>
