@@ -30,7 +30,8 @@ const updateUI = async() => {
     document.getElementById('date').innerHTML = `<span class="entry-item">Plan: </span>${allData.date}`
     document.getElementById('temp').innerHTML = `<span class="entry-item">Forecast: </span>${allData.temp}`
     document.getElementById('content').innerHTML = `<span class="entry-item">Destination: </span>${allData.userRes}`
-    document.getElementById('pic').innerHTML = `<span class="entry-item"><img src=${allData.picture} width="50%" </span>`
+    //document.getElementById('pic').innerHTML = `<span class="entry-item"><img src=${allData.picture} width="50%" </span>`
+    document.getElementById('pic').innerHTML = `<div class="entry-item"><img src=${allData.picture} </div>`
   }
   catch(error) {
     console.log('error', error);

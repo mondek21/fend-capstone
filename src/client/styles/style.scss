@@ -8,17 +8,67 @@ body{
 
 #app{
     display: grid;
-    grid-auto-rows: minmax(150px, auto);
+    grid-auto-rows: minmax(50px, auto);
     /* grid-template-columns:  */
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     height:100vh;
-    background: #f23557;
+    background: #87ceeb;
     color: #f0d43a;
     justify-content: center;
-    grid-gap: 1em;
+    //grid-gap: 1em;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
 }
+
+.header{
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  font-size: 70px;
+}
+
+.content{
+  display: grid;
+  grid-auto-rows: minmax(150px, auto);
+  grid-template-columns: 1fr;
+  border: 1px solid orange;
+}
+
+.inputs{
+  display: grid;
+  grid-auto-rows: minmax(50px, auto);
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid yellow;
+}
+
+.fields{
+  display: flex;
+  flex-direction: row;
+  border: 5px solid grey;
+  margin: 5px;
+}
+
+.outputs{
+  display: grid;
+  grid-auto-rows: minmax(350px, auto);
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid yellow;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 5px solid grey;
+  margin: 5px;
+}
+
+#pic{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
 .holder{
 

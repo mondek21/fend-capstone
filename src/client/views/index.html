@@ -7,28 +7,37 @@
 </head>
 <body>
   <div id = "app">
-    <div class ="holder headline">
+    <div class ="header">
       Travel Planner App
      </div>
-     <div class ="holder zip">
-       <label for="zip">Enter Your Destination City</label>
-       <input type="text" id="zip" placeholder="Enter destination city here">
-     </div>
-     <div class ="holder feel">
-       <label for="feelings">When does your trip start? (mm/dd/yy)</label>
-       <!--<textarea class= "myInput" id="feelings" placeholder="mm/dd/yy" rows="9" cols="50"></textarea>-->
-       <input type="text" id="feelings" placeholder="mm/dd/yy">
-       <button id="generate" type = "submit"> Generate </button>
-     </div>
-     <div class ="holder entry">
-       <div class = "title">Your Upcoming Trip:</div>
-       <div id = "entryHolder">
-       <div id = "content"></div>
-       <div id = "date"></div>
-       <div id = "temp"></div>
-
-       <div id = "pic"></div>
+     <div class ="content">
+       <div class="inputs">
+         <div class ="fields">
+           <label for="zip">Enter Your Destination City</label>
+           <input type="text" id="zip" placeholder="Enter destination city here">
+         </div>
+         <div class ="fields">
+           <label for="feelings">When does your trip start? (mm/dd/yyyy)</label>
+           <!--<textarea class= "myInput" id="feelings" placeholder="mm/dd/yy" rows="9" cols="50"></textarea>-->
+           <input type="text" id="feelings" placeholder="mm/dd/yyyy">
+           <button id="generate" type = "submit"> Generate </button>
+         </div>
        </div>
+       <div class="outputs">
+         <div class="container">
+           <div id = "pic"></div>
+         </div>
+         <div class="container">
+           <div class ="holder entry">
+             <div class = "title">Your Upcoming Trip:</div>
+             <div id = "entryHolder">
+               <div id = "content"></div>
+               <div id = "date"></div>
+               <div id = "temp"></div>
+             </div>
+           </div>
+          </div>
+        </div>
       </div>
    </div>
    <script>

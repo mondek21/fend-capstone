@@ -9,7 +9,7 @@ let weatherurl = 'https://api.weatherbit.io/v2.0/forecast/daily?lat=';
 let weatherurl2 = 'https://api.weatherbit.io/v2.0/normals?lat=';
 let pixurl = 'https://pixabay.com/api/?';
 
-const key = process.env.owkey
+//const key = process.env.owkey
 const weatherBitKey = process.env.weather_bit_key
 const geouser = process.env.geou;
 const pix_key = process.env.pixy_key;
@@ -27,7 +27,6 @@ app.use(cors())
 app.use(express.static('dist'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-console.log(key)
 app.get('/all', sendData);
 function sendData(req, res) {
   res.send(projectData);
