@@ -1,4 +1,6 @@
 
+
+
 const dotenv = require('dotenv');
 dotenv.config();
 var path = require('path')
@@ -18,11 +20,11 @@ const cors = require('cors');
 const app = express()
 const port = 8081
 const fetch = require('node-fetch')
-cityData = [];
-projectData = {};
-zipData = {};
-tempData = {};
-picData = [];
+let cityData = [];
+let projectData = {};
+let zipData = {};
+let tempData = {};
+let picData = [];
 app.use(cors())
 app.use(express.static('dist'))
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -41,15 +43,15 @@ app.listen(port, function () {
 app.post('/add', async(req, res) => {
   try {
   const theLocation = await getLatLon(zipData.zip);
-  console.log(theLocation);
+  //console.log(theLocation);
   let lat = theLocation[0];
   let lon = theLocation[1];
   let country = theLocation[2];
   picData = await getPics(zipData.zip);
-  console.log(`trip length of ${req.body.triplength}`);
-  console.log(`mmdd = ${req.body.monthanddate}`)
+  //console.log(`trip length of ${req.body.triplength}`);
+  //console.log(`mmdd = ${req.body.monthanddate}`)
   const theWeather = await getWeather(lat, lon, req.body.tripLength, req.body.monthanddate);
-  console.log(`The weather report shows:  ${theWeather}`);
+  //console.log(`The weather report shows:  ${theWeather}`);
 
   projectData.monthDate = req.body.monthanddate;
   projectData.length = req.body.tripLength;
@@ -91,17 +93,17 @@ app.post('/zip', async(req, res) => {
 })
 
 const getLatLon = async(city)=>{
-  console.log('getLatLon');
+  //console.log('getLatLon');
   const url = `${geourl}${city}&maxRows=1&username=${geouser}`;
   const response = await fetch(url);
   let data = await response.json();
-  console.log(data);
+  //console.log(data);
   const lat = data.geonames[0].lat;
   const lon = data.geonames[0].lng;
   const country = data.geonames[0].countryName;
-  console.log(lat);
-  console.log(lon);
-  console.log(country)
+  //console.log(lat);
+  //console.log(lon);
+  //console.log(country)
   const coordinates = [lat, lon, country];
   return coordinates;
 }
@@ -144,3 +146,5 @@ const getPics = async(city)=>{
   console.log(image_url);
   return image_url;
 }
+
+export { getLatLon }

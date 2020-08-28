@@ -29,49 +29,75 @@ body{
 
 .content{
   display: grid;
-  grid-auto-rows: minmax(150px, auto);
+  grid-auto-rows: minmax(100px, auto);
   grid-template-columns: 1fr;
   border: 1px solid orange;
 }
 
 .inputs{
-  display: grid;
+  /*display: grid;
   grid-auto-rows: minmax(50px, auto);
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;*/
+  display: flex;
+  flex-direction: row;
   border: 1px solid yellow;
 }
 
-.fields{
-  display: flex;
-  flex-direction: row;
+.field{
+  /*display: flex;
+  flex-direction: row;*/
+  justify-content: center;
+  width: 30%;
+  border: 5px solid grey;
+  margin: 5px;
+}
+
+.praire{
+  /*display: flex;
+  flex-direction: row;*/
+  justify-content: center;
+  width: 70%;
   border: 5px solid grey;
   margin: 5px;
 }
 
 .outputs{
-  display: grid;
+  /*display: grid;
   grid-auto-rows: minmax(350px, auto);
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;*/
+  min-height: 300px;
+  display: flex;
+  flex-direction: row;
   border: 1px solid yellow;
 }
 
 .container{
-  display: flex;
-  flex-direction: row;
+  /*display: flex;
+  flex-direction: row;*/
   justify-content: center;
+  width: 50%;
+
   border: 5px solid grey;
   margin: 5px;
 }
 
 #pic{
-  display: block;
+  /*display: block;
   margin-left: auto;
   margin-right: auto;
+  justify-content: center;
+  align-self: center;*/
 }
 
+img{
+  max-width: 100%;
+  max-height: 300px;
+  min-width: 100px;
+}
 
 .holder{
-
+  justify-content: center;
+  align-self: center;
 }
 
 .entry{

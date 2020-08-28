@@ -78,6 +78,10 @@ const performAction = async function() {
   updateUI()
 }
 /*Add event listener*/
-document.getElementById('generate').addEventListener('click', performAction);
+//document.getElementById('generate').addEventListener('click', performAction);
 
+document.addEventListener('DOMContentLoaded', () => {
+    const button_submit = document.getElementById("generate");
+    button_submit.addEventListener("click", performAction);
+});
 export { postData, updateUI, performAction }
