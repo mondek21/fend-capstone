@@ -146,5 +146,3 @@ const getPics = async(city)=>{
   console.log(image_url);
   return image_url;
 }
-
-export { getLatLon }

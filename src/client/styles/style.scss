@@ -23,7 +23,7 @@ body{
 .header{
   display: flex;
   justify-content: center;
-  border: 1px solid black;
+  //border: 1px solid black;
   font-size: 70px;
 }
 
@@ -31,7 +31,7 @@ body{
   display: grid;
   grid-auto-rows: minmax(100px, auto);
   grid-template-columns: 1fr;
-  border: 1px solid orange;
+  //border: 1px solid orange;
 }
 
 .inputs{
@@ -40,7 +40,7 @@ body{
   grid-template-columns: 1fr 1fr;*/
   display: flex;
   flex-direction: row;
-  border: 1px solid yellow;
+  //border: 1px solid yellow;
 }
 
 .field{
@@ -68,7 +68,7 @@ body{
   min-height: 300px;
   display: flex;
   flex-direction: row;
-  border: 1px solid yellow;
+  //border: 1px solid yellow;
 }
 
 .container{
