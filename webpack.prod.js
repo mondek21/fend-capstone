@@ -39,5 +39,4 @@ module.exports = {
         new Dotenv(),
         new WorkboxPlugin.GenerateSW()
     ]
-
 }

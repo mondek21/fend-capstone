@@ -1,4 +1,4 @@
-import { /*getTemp,*/ postData, updateUI, performAction } from './js/app'
+import {  postData, updateUI, performAction } from './js/app'
 
 
 import './styles/style.scss';
@@ -7,4 +7,4 @@ import './styles/style.scss';
 //document.getElementById('btn-add').addEventListener('click', addHandleSubmit.addHandleSubmit);
 //document.getElementById('btn-init').addEventListener('click', addHandleSubmit.getList);
 
-export { /*getTemp,*/ postData, updateUI, performAction }
+export {  postData, updateUI, performAction }

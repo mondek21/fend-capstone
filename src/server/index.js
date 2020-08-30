@@ -1,32 +1,28 @@
-
-
-
 const dotenv = require('dotenv');
 dotenv.config();
-var path = require('path')
-const express = require('express')
+var path = require('path');
+const express = require('express');
 
 let geourl = 'http://api.geonames.org/searchJSON?q=';
 let weatherurl = 'https://api.weatherbit.io/v2.0/forecast/daily?lat=';
 let weatherurl2 = 'https://api.weatherbit.io/v2.0/normals?lat=';
 let pixurl = 'https://pixabay.com/api/?';
 
-//const key = process.env.owkey
-const weatherBitKey = process.env.weather_bit_key
+const weatherBitKey = process.env.weather_bit_key;
 const geouser = process.env.geou;
 const pix_key = process.env.pixy_key;
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const app = express()
-const port = 8081
-const fetch = require('node-fetch')
+const app = express();
+const port = 8081;
+const fetch = require('node-fetch');
 let cityData = [];
 let projectData = {};
 let zipData = {};
-let tempData = {};
+//let tempData = {};
 let picData = [];
-app.use(cors())
-app.use(express.static('dist'))
+app.use(cors());
+app.use(express.static('dist'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.get('/all', sendData);
@@ -84,7 +80,7 @@ app.post('/zip', async(req, res) => {
   picData = await getPics(zipData.zip);
   console.log('app.post/zip run');
 
-  console.log(tempData);
+  //console.log(tempData);
   console.log(projectData);
 
   } catch(e) {
@@ -122,18 +118,18 @@ const getWeather = async(lat, lon, tMinus, hDate)=>{
     console.log(weatherData);
     return weatherData;
   } else {
-    let url2 = `${weatherurl2}${lat}&lon=${lon}&units=i&start_day=${hDate}&end_day=${hDate}&tp=daily&key=${weatherBitKey}`;
-    const response = await fetch(url2);
-    let data = await response.json();
-    console.log(`url2 = ${url2}`)
-    console.log(`data after 15 is ${data}`)
-    const high = data.data[0].max_temp;
-    console.log(`after 15 high ${high}`)
-    const low = data.data[0].min_temp;
-    const weather = 'Historically';
-    const weatherData = [high, low, weather];
-    console.log(weatherData);
-    return weatherData;
+      let url2 = `${weatherurl2}${lat}&lon=${lon}&units=i&start_day=${hDate}&end_day=${hDate}&tp=daily&key=${weatherBitKey}`;
+      const response = await fetch(url2);
+      let data = await response.json();
+      console.log(`url2 = ${url2}`)
+      console.log(`data after 15 is ${data}`)
+      const high = data.data[0].max_temp;
+      console.log(`after 15 high ${high}`)
+      const low = data.data[0].min_temp;
+      const weather = 'Historically';
+      const weatherData = [high, low, weather];
+      console.log(weatherData);
+      return weatherData;
   }
 }
 

@@ -1,30 +1,20 @@
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebPackPlugin = require("html-webpack-plugin")
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const Dotenv = require('dotenv-webpack')
-//added workBox b/c getting errors when running build-dev but not with start (prod)
-//const WorkboxPlugin = require('workbox-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     entry: './src/client/index.js',
     mode: 'development',
     devtool: 'source-map',
     stats: 'verbose',
-
     devServer: {
       port: 8080,
-    //  proxy: {
-      //  '/add': 'http://localhost:8081',
-        //'/add': 'http://localhost:8081'
-      //}
       proxy: {
-
         '/add': 'http://localhost:8081',
         '/all': 'http://localhost:8081',
-        //'/zipper': 'http://localhost:8081',
         '/zip': 'http://localhost:8081'
-
       }
     },
     output: {
@@ -59,7 +49,5 @@ module.exports = {
             protectWebpackAssets: false
         }),
         new Dotenv()
-        //added workBox b/c getting errors when running build-dev but not with start (prod)
-        //new WorkboxPlugin.GenerateSW()
     ]
 }
